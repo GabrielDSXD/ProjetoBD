@@ -10,9 +10,22 @@ export default function mainpage() {
       <div>
         <h1>Projeto BD</h1>
       </div>
+
       <div>
         <img className={style.logo} src={logo} alt="Logo" />
       </div>
+
+      <div className={style.linha}>
+        <div className={style.box}>
+          <h2 className={style.integrantes}>Integrantes:</h2>
+          <p>Arthur Ramon</p>
+          <p>Gabriel Dantas</p>
+          <p>Davi Baratto</p>
+        </div>
+        <div></div>
+        <div></div>
+      </div>
+
     </div>
   );
 }

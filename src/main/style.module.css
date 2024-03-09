@@ -28,3 +28,32 @@ h1 {
     background-color: #F0F0F0;
     height: 100vh;
 }
+
+.linha{
+    background-color: #0072bc;
+    margin-top: 120px;
+    border-radius: 7px;
+    height: auto;
+    padding: 20px;
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+}
+
+.integrantes{
+    font-size: 35px;
+    color: white;
+}
+
+p{
+    font-size: 20px;
+    color: white;
+}
+
+.box{
+    background-color: #0072bc;
+    border-radius: 20px;
+    border: white solid 3px;
+    padding: 20px;
+    margin: 20px;
+}
