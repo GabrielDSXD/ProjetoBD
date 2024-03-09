@@ -42,18 +42,18 @@ h1 {
 
 .integrantes{
     font-size: 35px;
-    color: white;
+    color: #0072bc;
 }
 
 p{
     font-size: 20px;
-    color: white;
+    color: #0072bc;
 }
 
 .box{
-    background-color: #0072bc;
+    background-color: #F0F0F0;
     border-radius: 20px;
-    border: white solid 3px;
+    border: white solid px;
     padding: 20px;
     margin: 20px;
 }

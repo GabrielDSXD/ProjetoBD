@@ -13,15 +13,31 @@ function Index() {
 
             <form>
                 <div>
-                    <TextField className={style.caixaTexto} id="nome" label="Nome" size='medium'/>
+                    <TextField className={style.caixaTexto} id="cidade" label="Cidade" size='medium'/>
                 </div>
 
                 <div>
-                    <TextField className={style.caixaTexto} id="razaoSocial" label="Razão Social" size='medium'/>
+                    <TextField className={style.caixaTexto} id="estado" label="Estado" size='medium'/>
                 </div>
 
                 <div>
-                    <TextField className={style.caixaTexto} id="cnpj" label="CNPJ" size='medium'/>
+                    <TextField className={style.caixaTexto} id="numero" label="Número" size='medium'/>
+                </div>
+
+                <div>
+                    <TextField className={style.caixaTexto} id="cep" label="CEP" size='medium'/>
+                </div>
+
+                <div>
+                    <TextField className={style.caixaTexto} id="complemento" label="Complemento" size='medium'/>
+                </div>
+
+                <div>
+                    <TextField className={style.caixaTexto} id="bairro" label="Bairro" size='medium'/>
+                </div>
+
+                <div>
+                    <TextField className={style.caixaTexto} id="logradouro" label="Logradouro" size='medium'/>
                 </div>
 
                 <button type="submit">Cadastrar</button>
