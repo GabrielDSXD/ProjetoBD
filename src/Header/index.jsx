@@ -11,22 +11,10 @@ import SearchIcon from '@mui/icons-material/Search';
 import { Style } from '@mui/icons-material';
 import style from './style.module.css';
 import HomeIcon from '@mui/icons-material/Home';
+import ToggleButton from '@mui/material/ToggleButton';
+import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 
-const Search = styled('div')(({ theme }) => ({
-
-  position: 'relative',
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  width: '100%',
-  [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(1),
-    width: 'auto',
-  },
-
-}));const SearchIconWrapper = styled('div')(({ theme }) => ({
+const SearchIconWrapper = styled('div')(({ theme }) => ({
   padding: theme.spacing(0, 2),
   height: '100%',
   position: 'absolute',
@@ -53,7 +41,14 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function SearchAppBar() {
+export default function Header() {
+
+  const [alignment, setAlignment] = React.useState('web');
+
+  const handleChange = (event, newAlignment) => {
+    setAlignment(newAlignment);
+  }
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" >
@@ -70,28 +65,26 @@ export default function SearchAppBar() {
           >
             <HomeIcon />
           </IconButton>
+
           <div>
-            <a href="/cad.prod">Cadastro de Produtos</a>
-            <a href="/cad.vend">Cadastro de Vendedor</a>
-            <a href="/cad.cli">Cadastro de Cliente</a>
-            <a href="/cad.end">Cadastro de Endereço</a>
-            <a href="/cad.for">Cadastro de Fornecedor</a>
-            <a href="/cad.uni">Cadastro de Unidade</a>
-            <a href="/rec.lot">Recebimento de Lote</a>
-            <a href="/mostrar.rel">Mostrar Relatório</a>
+          <ToggleButtonGroup
+            color="primary"
+            value={alignment}
+            exclusive
+            onChange={handleChange}
+            aria-label="Platform"
+          >
+            <ToggleButton value="cad.prod" href='/cad.prod'>Cadastro de Produtos</ToggleButton>
+            <ToggleButton value="cad.vend" href="/cad.vend">Cadastro de Vendedor</ToggleButton>
+            <ToggleButton value="cad.cli" href="/cad.cli">Cadastro de Cliente</ToggleButton>
+            <ToggleButton value="cad.end" href='/cad.end'>Cadastro de Endereço</ToggleButton>
+            <ToggleButton value="cad.for" href="/cad.for">Cadastro de Fornecedor</ToggleButton>
+            <ToggleButton value="cad.uni" href="/cad.uni">Cadastro de Unidade</ToggleButton>
+            <ToggleButton value="rec.lot" href="/rec.lot">Recebimento de Lote</ToggleButton>
+            <ToggleButton value="mostrar.rel" href="/mostrar.rel">Mostrar Relatório</ToggleButton>
+          </ToggleButtonGroup>
           </div>
           
-          <div className={style.barrasearch}>
-            <Search sx={{justifyContent: 'flex'}}>
-              <SearchIconWrapper>
-                <SearchIcon />
-              </SearchIconWrapper>
-              <StyledInputBase
-                placeholder="Search…"
-                inputProps={{ 'aria-label': 'search' }}
-              />
-            </Search>
-          </div>
         </Toolbar>
       </AppBar>
     </Box>

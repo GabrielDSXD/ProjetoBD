@@ -15,5 +15,8 @@ button:hover {
 .caixaTexto {
     width: 100%;
     background-color: aliceblue;
-    margin-top: 10px;
+}
+
+.botaoEnviar{
+    margin-top: 20px;
 }
