@@ -11,9 +11,10 @@
 
 a {
     font-size: 1.6vh;
-    margin: 2vh;
+    margin: 2.3vh;
     color: white;
     text-decoration: none;
+    font-weight: 600;
 }
 
 a:hover {
