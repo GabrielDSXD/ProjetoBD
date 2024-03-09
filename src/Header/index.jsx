@@ -10,6 +10,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import { Style } from '@mui/icons-material';
 import style from './style.module.css';
+import HomeIcon from '@mui/icons-material/Home';
 
 const Search = styled('div')(({ theme }) => ({
 
@@ -56,16 +57,30 @@ export default function SearchAppBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" >
-        <Toolbar sx={{backgroundColor: '#0118E6'}}>
+        <Toolbar sx={{backgroundColor: '#0072bc'}}>
           <IconButton
             size="large"
             edge="start"
             color="inherit"
-            aria-label="open drawer"
+            aria-label="home icon"
             sx={{ mr: 2 }}
+            onClick={() => {
+              window.location.href = "/";
+            }}
           >
-            <MenuIcon />
+            <HomeIcon />
           </IconButton>
+          <div>
+            <a href="/cad.prod">Cadastro de Produtos</a>
+            <a href="/cad.vend">Cadastro de Vendedor</a>
+            <a href="/cad.cli">Cadastro de Cliente</a>
+            <a href="/cad.end">Cadastro de Endereço</a>
+            <a href="/cad.for">Cadastro de Fornecedor</a>
+            <a href="/cad.uni">Cadastro de Unidade</a>
+            <a href="/rec.lot">Recebimento de Lote</a>
+            <a href="/mostrar.rel">Mostrar Relatório</a>
+          </div>
+          
           <div className={style.barrasearch}>
             <Search sx={{justifyContent: 'flex'}}>
               <SearchIconWrapper>

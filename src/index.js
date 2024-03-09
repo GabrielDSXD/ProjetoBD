@@ -4,11 +4,59 @@ import "./index.css";
 import Main from "./main/index";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import CadProd from "./cad.prod/index";
+import CadCli from "./cad.cli/index";
+import CadFor from "./cad.for/index";
+import CadUni from "./cad.uni/index";
+import CadVend from "./cad.vend/index";
+import CadEnd from "./cad.end/index";
+import MostrarRel from "./mostrar.rel/index";
+import RecLot from "./rec.lot/index";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+  },
+
+  {
+    path: "/cad.prod",
+    element: <CadProd />,
+  },
+
+  {
+    path: "/cad.cli",
+    element: <CadCli />,
+  },
+
+  {
+    path: "/cad.for",
+    element: <CadFor />,
+  },
+
+  {
+    path: "/cad.uni",
+    element: <CadUni />,
+  },
+
+  {
+    path: "/cad.vend",
+    element: <CadVend />,
+  },
+
+  {
+    path: "/cad.end",
+    element: <CadEnd />,
+  },
+
+  {
+    path: "/mostrar.rel",
+    element: <MostrarRel />,
+  },
+
+  {
+    path: "/rec.lot",
+    element: <RecLot />,
   },
 ]);
 

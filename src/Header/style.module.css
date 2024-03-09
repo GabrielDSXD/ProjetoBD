@@ -8,3 +8,14 @@
     justify-content: flex-end;
     flex: 1;
 }
+
+a {
+    font-size: 1.6vh;
+    margin: 2vh;
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #A8B6D1;
+}
