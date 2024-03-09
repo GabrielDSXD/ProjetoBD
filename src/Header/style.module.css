@@ -1,0 +1,10 @@
+.logo {
+    width: 30vh;
+    /*margin: 0 auto;*/
+}
+
+.barrasearch{
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+}
