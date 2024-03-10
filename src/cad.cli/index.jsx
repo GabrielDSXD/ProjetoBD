@@ -7,8 +7,10 @@ import SendIcon from '@mui/icons-material/Send';
 
 function Index() {
     return (
-        <div>
+        <div className={style.fundo}>
             <Header />
+            <div className={style.divcard}>
+            <div className={style.card}>
             <div>
                 <h1>Cadastro de Clientes</h1>
             </div>
@@ -34,6 +36,8 @@ function Index() {
                     <Button variant="contained" endIcon={<SendIcon />}>Enviar</Button>
                 </div>
             </form>
+            </div>
+            </div>
 
         </div>
     );

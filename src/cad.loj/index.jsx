@@ -12,7 +12,7 @@ function Index() {
             <div className={style.divcard}>
             <div className={style.card}>
                 <div>
-                    <h1>Mostrar Relatório</h1>
+                    <h1>Cadastro de Loja</h1>
                 </div>
 
                 <form className={style.form}>

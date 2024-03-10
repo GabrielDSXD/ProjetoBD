@@ -7,8 +7,10 @@ export default function mainpage() {
   return (
     <div className={style.fundo}>
       <Header />
-      <div>
-        <h1>Projeto BD</h1>
+      <div className={style.divtittle}>
+      <div className={style.card}>
+        <h1 className={style.tittle}>Projeto BD</h1>
+      </div>
       </div>
 
       <div>
@@ -22,8 +24,6 @@ export default function mainpage() {
           <p>Gabriel Dantas</p>
           <p>Davi Baratto</p>
         </div>
-        <div></div>
-        <div></div>
       </div>
 
     </div>

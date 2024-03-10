@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import CadProd from "./cad.prod/index";
 import CadCli from "./cad.cli/index";
 import CadFor from "./cad.for/index";
-import CadUni from "./cad.uni/index";
+import CadLoj from "./cad.loj/index";
 import CadVend from "./cad.vend/index";
 import CadEnd from "./cad.end/index";
 import MostrarRel from "./mostrar.rel/index";
@@ -35,8 +35,8 @@ const router = createBrowserRouter([
   },
 
   {
-    path: "/cad.uni",
-    element: <CadUni />,
+    path: "/cad.loj",
+    element: <CadLoj />,
   },
 
   {

@@ -52,7 +52,7 @@ export default function Header() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" >
-        <Toolbar sx={{backgroundColor: '#0072bc'}}>
+        <Toolbar sx={{backgroundColor: '#00558c'}}>
           <IconButton
             size="large"
             edge="start"
@@ -66,7 +66,7 @@ export default function Header() {
             <HomeIcon />
           </IconButton>
 
-          <div>
+          <div className={style.paginas}>
           <ToggleButtonGroup
             color="primary"
             value={alignment}
@@ -79,7 +79,7 @@ export default function Header() {
             <ToggleButton value="cad.cli" href="/cad.cli">Cadastro de Cliente</ToggleButton>
             <ToggleButton value="cad.end" href='/cad.end'>Cadastro de Endereço</ToggleButton>
             <ToggleButton value="cad.for" href="/cad.for">Cadastro de Fornecedor</ToggleButton>
-            <ToggleButton value="cad.uni" href="/cad.uni">Cadastro de Unidade</ToggleButton>
+            <ToggleButton value="cad.uni" href="/cad.loj">Cadastro de Loja</ToggleButton>
             <ToggleButton value="rec.lot" href="/rec.lot">Recebimento de Lote</ToggleButton>
             <ToggleButton value="mostrar.rel" href="/mostrar.rel">Mostrar Relatório</ToggleButton>
           </ToggleButtonGroup>
