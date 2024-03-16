@@ -5,8 +5,17 @@ form {
     justify-content: center;
 }
 
+h1 {
+    margin-bottom: 20px;
+}
+
 .caixaTexto {
     width: 100%;
+    background-color: aliceblue;
+    border-radius: 5px;
+}
+.caixaTextoEspecial {
+    width: 20%;
     background-color: aliceblue;
     border-radius: 5px;
 }
@@ -16,14 +25,14 @@ form {
 }
 
 .card{
-    margin-top: 30px;
+    margin-top: 10px;
     border: 5px solid #00558c;
     justify-content: center;
     align-items: center;
     width: 50%;
     border-radius: 40px;
     background-color: #00558c;
-    padding-bottom: 50px;
+    padding-bottom: 20px;
 }
 
 .fundo{

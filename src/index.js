@@ -2,16 +2,18 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import Main from "./main/index";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import CadProd from "./cad.prod/index";
-import CadCli from "./cad.cli/index";
-import CadFor from "./cad.for/index";
-import CadLoj from "./cad.loj/index";
-import CadVend from "./cad.vend/index";
-import CadEnd from "./cad.end/index";
-import MostrarRel from "./mostrar.rel/index";
-import RecLot from "./rec.lot/index";
+import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
+import CadProd from "./produto/index";
+import UpdateProduto from "./produto/update";
+import DeleteProduto from "./produto/delete";
+import ReadProduto from "./produto/read";
+import CadCli from "./cliente/index";
+import CadFor from "./fornecedor/index";
+import CadLoj from "./loja/index";
+import CadVend from "./venda/index";
+import CadEnd from "./endereco/index";
+import MostrarRel from "./relatorio/index";
+import RecLot from "./lote/index";
 
 const router = createBrowserRouter([
   {
@@ -20,42 +22,57 @@ const router = createBrowserRouter([
   },
 
   {
-    path: "/cad.prod",
+    path: "/produto",
     element: <CadProd />,
   },
 
   {
-    path: "/cad.cli",
+    path: "/produto/atualizar",
+    element: <UpdateProduto />,
+  },
+
+  {
+    path: "/produto/deletar",
+    element: <DeleteProduto />,
+  },
+
+  {
+    path: "/produto/listar",
+    element: <ReadProduto />,
+  },
+
+  {
+    path: "/cliente",
     element: <CadCli />,
   },
 
   {
-    path: "/cad.for",
+    path: "/fornecedor",
     element: <CadFor />,
   },
 
   {
-    path: "/cad.loj",
+    path: "/loja",
     element: <CadLoj />,
   },
 
   {
-    path: "/cad.vend",
+    path: "/venda",
     element: <CadVend />,
   },
 
   {
-    path: "/cad.end",
+    path: "/endereco",
     element: <CadEnd />,
   },
 
   {
-    path: "/mostrar.rel",
+    path: "/relatorio",
     element: <MostrarRel />,
   },
 
   {
-    path: "/rec.lot",
+    path: "/lote",
     element: <RecLot />,
   },
 ]);
