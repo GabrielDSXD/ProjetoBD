@@ -42,7 +42,7 @@ function ReadProduto() {
                     <div>
                         <h1>Lista de Produtos</h1>
                     </div>
-                    <div>
+                    <div className={style.form}>
                         <ul>
                             {produtos.map(produto => (
                                 <li key={produto.codigo} className="product-item">
@@ -50,6 +50,7 @@ function ReadProduto() {
                                 </li>
                             ))}
                         </ul>
+                        <form id='listar_produto' className={style.form}>
                         <div>
                             <TextField
                                 className={style.caixaTextoEspecial}
@@ -68,6 +69,7 @@ function ReadProduto() {
                         <div className={style.botaoEnviar}>
                             <Button type="button" variant="contained" endIcon={<SendIcon />} onClick={listarProduto}>Buscar um produto</Button>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
