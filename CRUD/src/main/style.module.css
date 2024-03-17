@@ -1,0 +1,59 @@
+.geral {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    flex: 1;
+    padding: 20px;
+}
+
+h1 {
+    margin: 5px;
+    font-size: 50px;
+    text-align: center;
+    font-weight: 700;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: #0072bc;
+}
+
+.logo{
+    width: 60vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin: 0 auto;
+}
+
+.fundo{
+    background-color: #F0F0F0;
+    height: 100vh;
+}
+
+.linha{
+    background-color: #0072bc;
+    margin-top: 120px;
+    border-radius: 7px;
+    height: auto;
+    padding: 20px;
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+}
+
+.integrantes{
+    font-size: 35px;
+    color: white;
+}
+
+p{
+    font-size: 20px;
+    color: white;
+}
+
+.box{
+    background-color: #0072bc;
+    border-radius: 20px;
+    border: white solid 3px;
+    padding: 20px;
+    margin: 20px;
+}
