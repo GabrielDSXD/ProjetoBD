@@ -7,6 +7,7 @@ import CadProd from "./produto/index";
 import UpdateProduto from "./produto/update";
 import DeleteProduto from "./produto/delete";
 import ReadProduto from "./produto/read";
+import ReadProdutoByNome from "./produto/ReadProdutoByNome";
 import CadCli from "./cliente/index";
 import CadFor from "./fornecedor/index";
 import CadLoj from "./loja/index";
@@ -39,6 +40,11 @@ const router = createBrowserRouter([
   {
     path: "/produto/listar",
     element: <ReadProduto />,
+  },
+
+  {
+    path: "/produto/listar-nome",
+    element: <ReadProdutoByNome />,
   },
 
   {

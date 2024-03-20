@@ -20,6 +20,8 @@ function ReadProduto() {
             .catch(error => {
                 console.error('Erro ao listar produtos:', error);
             });
+            const ul = document.querySelector('ul')
+            ul.className = ''
     };
 
     const listarProduto = () => {
@@ -32,10 +34,12 @@ function ReadProduto() {
             .catch(error => {
                 console.error('Erro ao listar o produto:', error);
             });
+            const ul = document.querySelector('ul')
+            ul.className = ''
     };
 
     return (
-        <div className={style.fundo}>
+        <div className={style.lista_fundo}>
             <Header />
             <div className={style.divcard}>
                 <div className={style.card}>
@@ -43,10 +47,10 @@ function ReadProduto() {
                         <h1>Lista de Produtos</h1>
                     </div>
                     <div className={style.form}>
-                        <ul>
+                        <ul id='ul' className={style.inactive}>
                             {produtos.map(produto => (
                                 <li key={produto.codigo} className="product-item">
-                                    Id: {produto.codigo} - {produto.nome} : {produto.descricao} ({produto.preco}) - {produto.quantidade}
+                                    Id: {produto.codigo} - {produto.nome} : {produto.descricao} R$ {produto.preco}
                                 </li>
                             ))}
                         </ul>

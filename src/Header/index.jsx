@@ -19,7 +19,7 @@ export default function Header() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" >
-        <Toolbar sx={{backgroundColor: '#00558c'}}>
+        <Toolbar sx={{ backgroundColor: '#00558c' }}>
           <IconButton
             size="large"
             edge="start"
@@ -34,27 +34,28 @@ export default function Header() {
           </IconButton>
 
           <div className={style.paginas}>
-          <ToggleButtonGroup
-            color="primary"
-            value={alignment}
-            exclusive
-            onChange={handleChange}
-            aria-label="Platform"
-          >
-            <ToggleButton value="save_produto" href='/produto'>Cadastro de Produtos</ToggleButton>
-            <ToggleButton value="update_produto" href='/produto/atualizar'>Atualizar Produto</ToggleButton>
-            <ToggleButton value="delete_produto" href='/produto/deletar'>Deletar Produto</ToggleButton>
-            <ToggleButton value="listar_produtos" href='/produto/listar'>Listar Produtos</ToggleButton>
-            <ToggleButton value="cad.vend" href="/venda">Cadastro de Vendedor</ToggleButton>
+            <ToggleButtonGroup
+              color="primary"
+              value={alignment}
+              exclusive
+              onChange={handleChange}
+              aria-label="Platform"
+            >
+              <ToggleButton value="save_produto" href='/produto'>Cadastro de Produtos</ToggleButton>
+              <ToggleButton value="update_produto" href='/produto/atualizar'>Atualizar Produto</ToggleButton>
+              <ToggleButton value="delete_produto" href='/produto/deletar'>Deletar Produto</ToggleButton>
+              <ToggleButton value="listar_produtos" href='/produto/listar'>Listar Produtos</ToggleButton>
+              <ToggleButton value="listar_produtos" href='/produto/listar-nome'>Listar Produtos Por Nome</ToggleButton>z
+              {/* <ToggleButton value="cad.vend" href="/venda">Cadastro de Vendedor</ToggleButton>
             <ToggleButton value="cad.cli" href="/cliente">Cadastro de Cliente</ToggleButton>
             <ToggleButton value="cad.end" href='/endereco'>Cadastro de Endereço</ToggleButton>
             <ToggleButton value="cad.for" href="/fornecedor">Cadastro de Fornecedor</ToggleButton>
             <ToggleButton value="cad.uni" href="/loja">Cadastro de Loja</ToggleButton>
             <ToggleButton value="rec.lot" href="/lote">Recebimento de Lote</ToggleButton>
-            <ToggleButton value="mostrar.rel" href="/relatorio">Mostrar Relatório</ToggleButton>
-          </ToggleButtonGroup>
+            <ToggleButton value="mostrar.rel" href="/relatorio">Mostrar Relatório</ToggleButton> */}
+            </ToggleButtonGroup>
           </div>
-          
+
         </Toolbar>
       </AppBar>
     </Box>
