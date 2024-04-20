@@ -43,6 +43,49 @@ BEGIN ATOMIC
     WHERE cpf_cliente = cpf_cliente_param;
 END;
 
+CREATE OR REPLACE PROCEDURE InserirVendedor(
+    IN cpf_vendedor_param VARCHAR(11),
+    IN prim_nome_param VARCHAR(20),
+    IN ult_nome_param VARCHAR(30),
+    IN senha_param VARCHAR(100),
+    OUT novo_vendedor_cpf VARCHAR(11)
+)
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    INSERT INTO vendedor (cpf_vendedor, prim_nome, ult_nome, senha)
+    VALUES (cpf_vendedor_param, prim_nome_param, ult_nome_param, senha_param)
+    RETURNING cpf_vendedor INTO novo_vendedor_cpf;
+
+EXCEPTION
+    WHEN OTHERS THEN
+        RAISE NOTICE 'Error occurred: %', SQLERRM;
+        novo_vendedor_cpf := NULL;
+END;
+$$;
+
+CREATE OR REPLACE PROCEDURE AtualizarVendedor(
+    IN cpf_vendedor_param VARCHAR(11),
+    IN prim_nome_param VARCHAR(20),
+    IN ult_nome_param VARCHAR(30),
+    IN senha_param VARCHAR(100)
+)
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    UPDATE vendedor
+    SET prim_nome = prim_nome_param,
+        ult_nome = ult_nome_param,
+        senha = senha_param
+    WHERE cpf_vendedor = cpf_vendedor_param;
+
+EXCEPTION
+    WHEN OTHERS THEN
+        RAISE NOTICE 'Error occurred: %', SQLERRM;
+END;
+$$;
+
+
 CREATE PROCEDURE ConsultarRelatorioVendas(
     IN cpf_vendedor_param VARCHAR(11),
     IN mes_param SMALLINT,
