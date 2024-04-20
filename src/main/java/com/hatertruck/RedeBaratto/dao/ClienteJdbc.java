@@ -128,8 +128,8 @@ public class ClienteJdbc {
     }
     
 	public List<Cliente> selectByString(String s) {
-		String sql = "SELECT * FROM cliente WHERE LOWER(prim_nome) LIKE LOWER('%' || ? || '%')";
-		return jdbcTemplate.query(sql, rowMapper, s);
+		String sql = "SELECT * FROM cliente WHERE LOWER(prim_nome) LIKE LOWER('%' || ? || '%') OR LOWER(ult_nome) LIKE LOWER('%' || ? || '%')";
+		return jdbcTemplate.query(sql, rowMapper, s, s);
 	}
 
 }
