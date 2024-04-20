@@ -11,6 +11,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
 import com.hatertruck.RedeBaratto.model.Produto;
+import com.hatertruck.RedeBaratto.model.Produto.CategoriaProduto;
 
 /* Classe Produto Data Access Object
 *  responsavel por transformar os 
@@ -103,5 +104,25 @@ public class ProdutoJdbcDao implements DAO<Produto> {
 		}
 
 		return Optional.ofNullable(produto);
+	}
+	
+	public List<Produto> selectAllByPreco(float precoMinimo, float precoMaximo) {
+		String sql = "SELECT * FROM produto WHERE preco BETWEEN ? AND ?";
+        return jdbcTemplate.query(sql, rowMapper, precoMinimo, precoMaximo);
+	}
+	
+	public List<Produto> selectAllCategoria(CategoriaProduto categoria) {
+		String sql = "SELECT * FROM produto WHERE categoria = ?::categoria_type";
+		return jdbcTemplate.query(sql, rowMapper, categoria.name().toLowerCase());
+	}
+	
+	public List<Produto> selectAllFabricadoEmMari() {
+		String sql = "SELECT * FROM produto WHERE fab_mari = true";
+        return jdbcTemplate.query(sql, rowMapper);
+	}
+	
+	public List<Produto> selectAllPoucoEstoque(int id_produto, String cpf) {
+		String sql = "SELECT * FROM produto WHERE qtd_produto < 5";
+        return jdbcTemplate.query(sql, rowMapper);
 	}
 }
