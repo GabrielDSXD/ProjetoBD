@@ -9,6 +9,18 @@ BEGIN
 END;
 $$;
 
+CREATE OR REPLACE FUNCTION ConsultarVendedorPorCPF(
+    cpf_vendedor_param VARCHAR(11)
+)
+RETURNS SETOF Vendedor
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    RETURN QUERY SELECT * FROM vendedor WHERE cpf_vendedor = cpf_vendedor_param;
+END;
+$$;
+
+
 
 CREATE OR REPLACE FUNCTION CriarCompraFunc(
     IN cpf_cliente_param VARCHAR(11),
