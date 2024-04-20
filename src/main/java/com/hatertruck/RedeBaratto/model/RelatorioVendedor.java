@@ -1,19 +1,36 @@
 package com.hatertruck.RedeBaratto.model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class RelatorioVendedor {
 	private int idVendedor;
 	private float valorVendido;
 	private Date dataRelatorio;
 	private List<Integer> vendas;
-	
-	public RelatorioVendedor(int idVendedor, float valorVendido, Date dataRelatorio, List<Integer> vendas) {
+
+	private static final Logger log = LoggerFactory.getLogger(RelatorioVendedor.class);
+
+	public RelatorioVendedor(int idVendedor, float valorVendido, Short relatorioDia, Short relatorioMes,
+			Short relatorioAno, List<Integer> vendas) {
 		super();
 		this.idVendedor = idVendedor;
 		this.valorVendido = valorVendido;
-		this.dataRelatorio = dataRelatorio;
+		String dataString = String.format("%d/%d/%d", relatorioDia, relatorioMes, relatorioAno);
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yy/MM/dd");
+
+		try {
+			Date data = dateFormat.parse(dataString);
+			this.dataRelatorio = data;
+		} catch (ParseException e) {
+			log.info("Erro ao realizar o parsing da data: " + e.getMessage());
+		}
+
 		this.vendas = vendas;
 	}
 
@@ -35,6 +52,19 @@ public class RelatorioVendedor {
 
 	public Date getDataRelatorio() {
 		return dataRelatorio;
+	}
+
+	public void setDataRelatorio(Short relatorioDia, Short relatorioMes,
+			Short relatorioAno) {
+		String dataString = String.format("%d/%d/%d", relatorioDia, relatorioMes, relatorioAno);
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yy/MM/dd");
+
+		try {
+			Date data = dateFormat.parse(dataString);
+			this.dataRelatorio = data;
+		} catch (ParseException e) {
+			log.info("Erro ao realizar o parsing da data: " + e.getMessage());
+		}
 	}
 
 	public void setDataRelatorio(Date dataRelatorio) {
