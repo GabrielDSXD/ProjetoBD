@@ -20,8 +20,6 @@ BEGIN
 END;
 $$;
 
-
-
 CREATE OR REPLACE FUNCTION CriarCompraFunc(
     IN cpf_cliente_param VARCHAR(11),
     IN cpf_vendedor_param VARCHAR(11),
@@ -40,11 +38,6 @@ BEGIN
     -- Verificar se o método de pagamento é válido
     IF metodo_pgmt_param NOT IN ('pix', 'cartao', 'boleto', 'berries') THEN
         RAISE EXCEPTION 'Método de pagamento inválido. Opções válidas: pix, cartao, boleto, berries.';
-    END IF;
-
-    -- Verificar se o status é válido
-    IF status_param NOT IN ('pago', 'nao_pago') THEN
-        RAISE EXCEPTION 'Status inválido. Opções válidas: pago, nao_pago.';
     END IF;
 
     INSERT INTO Compra (cpf_cliente, cpf_vendedor, dia, mes, ano, metodo_pgmt, status_pago, valor_total)
