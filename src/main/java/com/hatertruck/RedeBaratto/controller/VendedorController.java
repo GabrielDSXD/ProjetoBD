@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,9 +29,9 @@ public class VendedorController {
 
     @ResponseBody
     @PostMapping("/cadastrar")
-    @ResponseStatus(HttpStatus.CREATED)
-    public void cadastrarVendedor(@RequestBody Vendedor vendedor) {
+    public ResponseEntity<String> ceatreVendedor(@RequestBody Vendedor vendedor) {
         vendedorJdbc.create(vendedor);
+        return ResponseEntity.status(HttpStatus.CREATED).body("Vendedor registrado com sucesso.");
     }
 
     @ResponseBody
@@ -41,18 +42,28 @@ public class VendedorController {
     }
 
     @ResponseBody
+    @GetMapping("/{cpfVendedor}")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<Vendedor> pegarVendedor(@PathVariable String cpfVendedor) {
+    	Optional<Vendedor> vendedor = vendedorJdbc.selectByCpf(cpfVendedor);
+        return vendedor.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+    
+    @ResponseBody
     @PutMapping("/atualizar/{cpfVendedor}")
     @ResponseStatus(HttpStatus.OK)
-    public void atualizarVendedor(@PathVariable String cpfVendedor, @RequestBody Vendedor vendedorAtualizado) {
+    public ResponseEntity<String> atualizarVendedor(@PathVariable String cpfVendedor, @RequestBody Vendedor vendedorAtualizado) {
         vendedorAtualizado.setCpfVendedor(cpfVendedor);
         vendedorJdbc.update(vendedorAtualizado, cpfVendedor);
+        return ResponseEntity.ok("Vendedor atualizado com sucesso.");
     }
 
     @ResponseBody
     @DeleteMapping("/deletar/{cpfVendedor}")
     @ResponseStatus(HttpStatus.OK)
-    public void deletarVendedor(@PathVariable String cpfVendedor) {
+    public ResponseEntity<String> deletarVendedor(@PathVariable String cpfVendedor) {
         vendedorJdbc.delete(cpfVendedor);
+        return ResponseEntity.ok("Compra removida com sucesso.");
     }
 
     @ResponseBody
@@ -60,12 +71,5 @@ public class VendedorController {
     @ResponseStatus(HttpStatus.OK)
     public List<Vendedor> listarVendedoresPorNome(@PathVariable String nome) {
         return vendedorJdbc.selectByString(nome);
-    }
-
-    @ResponseBody
-    @GetMapping("/{cpfVendedor}")
-    @ResponseStatus(HttpStatus.OK)
-    public Optional<Vendedor> pegarVendedor(@PathVariable String cpfVendedor) {
-        return vendedorJdbc.selectByCpf(cpfVendedor);
     }
 }
