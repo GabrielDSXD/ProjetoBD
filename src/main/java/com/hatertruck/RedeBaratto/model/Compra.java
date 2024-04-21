@@ -1,7 +1,5 @@
 package com.hatertruck.RedeBaratto.model;
 
-import java.math.BigDecimal;
-
 public class Compra {
     private int idCompra;
     private String cpfCliente;
@@ -10,19 +8,18 @@ public class Compra {
     private int mes;
     private int ano;
     private MetodoPagamento metodoPagamento;
-    private StatusCompra status;
-    private BigDecimal valorTotal;
+    private boolean status;
+    private float valorTotal;
 
     public enum MetodoPagamento {
         PIX, CARTAO, BOLETO, BERRIES
     }
-
-    public enum StatusCompra {
-        PAGO, NAO_PAGO
+    
+    public Compra() {
     }
 
     public Compra(int idCompra, String cpfCliente, String cpfVendedor, int dia, int mes, int ano,
-                  MetodoPagamento metodoPagamento, StatusCompra status, BigDecimal valorTotal) {
+                  MetodoPagamento metodoPagamento, boolean status, float valorTotal) {
         this.idCompra = idCompra;
         this.cpfCliente = cpfCliente;
         this.cpfVendedor = cpfVendedor;
@@ -33,6 +30,15 @@ public class Compra {
         this.status = status;
         this.valorTotal = valorTotal;
     }
+    
+	  public Compra(int idCompra, int dia, int mes, int ano) {
+	  this.idCompra = idCompra;
+	  this.dia = dia;
+	  this.mes = mes;
+	  this.ano = ano;
+	  this.status = false;
+	  this.valorTotal = 0;
+	}
 
     public int getIdCompra() {
         return idCompra;
@@ -90,19 +96,19 @@ public class Compra {
         this.metodoPagamento = metodoPagamento;
     }
 
-    public StatusCompra getStatus() {
+    public boolean getStatus() {
         return status;
     }
 
-    public void setStatus(StatusCompra status) {
+    public void setStatus(boolean status) {
         this.status = status;
     }
 
-    public BigDecimal getValorTotal() {
+    public float getValorTotal() {
         return valorTotal;
     }
 
-    public void setValorTotal(BigDecimal valorTotal) {
+    public void setValorTotal(float valorTotal) {
         this.valorTotal = valorTotal;
     }
 }
